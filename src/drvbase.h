@@ -73,9 +73,9 @@ const unsigned int  maxPages     = 10000;   // maximum number of pages - needed 
 #if defined(HAVE_STL) && !defined(USE_FIXED_ARRAY)
  // we can use std::vector
 #else
-const unsigned int	maxPoints    = 80000;	// twice the maximal number of points in a path
-const unsigned int	maxElements  = maxPoints/2;
-const unsigned int	maxSegments  = maxPoints/2;// at least half of maxpoints (if we only have segments with one point)
+const unsigned long	maxPoints    = 800000;	// twice the maximal number of points in a path
+const unsigned long	maxElements  = maxPoints/2;
+const unsigned long	maxSegments  = maxPoints/2;// at least half of maxpoints (if we only have segments with one point)
 #endif
 
 class DLLEXPORT Point
@@ -247,8 +247,8 @@ protected:
 		basedrawingelement * * path; // a path is an array of pointers to basedrawingelements
 #endif
 		bool	 	isPolygon; // whether current path was closed via closepath or not
-		unsigned int	numberOfElementsInPath;
-		unsigned int	subpathoffset; // normally 0, but if subpathes are simulated
+		unsigned long	numberOfElementsInPath;
+		unsigned long	subpathoffset; // normally 0, but if subpathes are simulated
 									   // then this is set to the begin of the current subpath 
 									   // before show_path is executed
 		float           currentLineWidth;
@@ -500,8 +500,8 @@ public:
 	void		addtopath(basedrawingelement * newelement);
 	void		removeFromElementFromPath();
 
-	unsigned int 	&numberOfElementsInPath() { return outputPath->numberOfElementsInPath; }
-	unsigned int 	numberOfElementsInPath() const { return outputPath->numberOfElementsInPath; }
+	unsigned long 	&numberOfElementsInPath() { return outputPath->numberOfElementsInPath; }
+	unsigned long 	numberOfElementsInPath() const { return outputPath->numberOfElementsInPath; }
 
 	const basedrawingelement & pathElement(unsigned int index) const;
 
