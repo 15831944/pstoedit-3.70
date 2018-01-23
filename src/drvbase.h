@@ -73,7 +73,7 @@ const unsigned int  maxPages     = 10000;   // maximum number of pages - needed 
 #if defined(HAVE_STL) && !defined(USE_FIXED_ARRAY)
  // we can use std::vector
 #else
-const unsigned long	maxPoints    = 800000;	// twice the maximal number of points in a path
+const unsigned long	maxPoints    = 4294967295;	// twice the maximal number of points in a path
 const unsigned long	maxElements  = maxPoints/2;
 const unsigned long	maxSegments  = maxPoints/2;// at least half of maxpoints (if we only have segments with one point)
 #endif
